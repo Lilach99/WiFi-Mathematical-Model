@@ -25,7 +25,7 @@ function [S] = estimateThpt(slotTimeFactor)
     Ps = (n*tau*(1-tau)^(n-1))/(Ptr);                        % probability of exactly one transmission, given there was at least one transmission
     Ts = packetDuration + DIFS + SIFS + ackDuration + 2*APD; % busy medium time for a successful transmission
     Tcmin = packetDuration + DIFS + APD;
-    Tcmax = packetDuration + DIFS + APD + packetDuration + APD;
+    Tcmax = packetDuration + DIFS + APD + APD;
     Tc = (Tcmin + Tcmax)/2;                                  % expectation of busy medium time for a collided transmission - assuming uniform distribution
     % throughput calculation - fraction of time the channel is used for successful transmisssion
     Snum = Ptr*Ps*packetDuration;                            % numerator of estimated throughput expression
